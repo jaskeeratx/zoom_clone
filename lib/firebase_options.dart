@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -52,11 +53,13 @@ class DefaultFirebaseOptions {
     }
   }
 
-    static const FirebaseOptions android = FirebaseOptions(
-      apiKey: 'AIzaSyCzXuvwXrC9tEk7Mme9kGuDDmnwkXc7e8s',
-      appId: '1:437249893199:android:6a68639b8751b1a8acdb3a',
+    static final FirebaseOptions android = FirebaseOptions(
+      apiKey:dotenv.get('FIREBASE_API_KEY'),
+        appId: '1:437249893199:android:6a68639b8751b1a8acdb3a',
       messagingSenderId: '437249893199',
       projectId: 'videocall-5fb75',
       storageBucket: 'videocall-5fb75.firebasestorage.app',
     );
   }
+git add lib/firebase_options.dart
+git add lib/services/generate_gwt.dart
